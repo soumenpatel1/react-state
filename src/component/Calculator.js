@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import BoilingVerdict from './BoilingVerdict';
-
+// Calculator Component
 class Calculator extends Component {
     state = {
         temperature: ''
