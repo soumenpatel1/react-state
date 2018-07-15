@@ -1,5 +1,5 @@
 import React from 'react'
-
+// Boiling Verdict
 const BoilingVerdict = (props) => {
     if(props.celsius >= 100) {
         return <p>The water would boil.</p>;
