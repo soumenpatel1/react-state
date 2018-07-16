@@ -1,9 +1,5 @@
 import React from 'react';
 
-const handleChange = (e, props) => {
-    props.onTemperatureChange(e.target.value);
-  }
-
 const TempratureInput = (props) => {
     return(
         <fieldset>

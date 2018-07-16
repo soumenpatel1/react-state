@@ -9,7 +9,7 @@ class Calculator extends Component {
         scale: 'c'
     }
 
-    toFahrenheit = (value) => (value - 32) * 5 / 9;
+    toFahrenheit = (value) => (value * 9 / 5) + 32;
 
     toCelsius = (value) => (value - 32) * 5 / 9;
 
@@ -38,13 +38,13 @@ class Calculator extends Component {
     }
 
     render() {
-        const celsius = this.scale === 'f' ? this.tryConvert(this.temperature, this.toCelsius):this.temperature;
-        const farenheit = this.scale === 'c' ? this.tryConvert(this.temperature, this.toFahrenheit):this.temperature;
+        const celsius = this.state.scale === 'f' ? this.tryConvert(this.state.temperature, this.toCelsius):this.state.temperature;
+        const farenheit = this.state.scale === 'c' ? this.tryConvert(this.state.temperature, this.toFahrenheit):this.state.temperature;
         return(
             <div>
                 <TempratureInput scale='c' temperature={celsius} onTemperatureChange={this.handleCelsiusChange}/>
                 <TempratureInput scale='f'temperature={farenheit} onTemperatureChange={this.handleFarenhietChange}/>
-                <BoilingVerdict celsius={celsius}/>
+                <BoilingVerdict celsius={parseFloat(celsius)}/>
             </div>
         );
     }
