@@ -1,33 +1,16 @@
-import React, { Component } from 'react';
-import BoilingVerdict from './BoilingVerdict';
+import React from 'react';
 
-const scaleName = {
-    c: 'celcius',
-    f: 'farenhite'
-}
+const handleChange = (e, props) => {
+    props.onTemperatureChange(e.target.value);
+  }
 
-class TempratureInput extends Component {
-    state = {
-        temprature: ''
-    }
-
-    handleChange = (e) => {
-        this.setState({
-            temperature: e.target.value
-        });
-    }
-
-    render() {
-        return(
-            <fieldset>
-                <legend>Enter temperature in {scaleName[this.props.scale]}:</legend>
-                <input
-                value={this.state.temperature}
-                onChange={this.handleChange} />
-                <BoilingVerdict celsius={this.state.temperature}/>
-            </fieldset>
-        );
-    }
+const TempratureInput = (props) => {
+    return(
+        <fieldset>
+            <legend>Enter temperature in {props.scale}:</legend>
+            <input value={props.temperature} onChange={props.onTemperatureChange}/>
+        </fieldset>
+    );
 }
 
 export default TempratureInput
